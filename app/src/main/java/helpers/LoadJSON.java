@@ -24,7 +24,7 @@ import java.util.List;
 
 public class LoadJSON {
 
-    private static final String serverURL = "http://192.168.1.15:80/";
+    private static final String serverURL = "http://192.168.1.63:80/";
 
     public static void downloadJSON(final JsonDisplayActivity jda, final String urlWebService, final String[] typeNames, final String[] typeValues) {
 
@@ -79,6 +79,11 @@ public class LoadJSON {
                     }
                     return sb.toString().trim();
                 } catch (Exception e) {
+                    if (urlWebService.equals("load_service_types.php")) {
+                        return "[{\"id\":\"0\",\"service_name\":\"Plumbing\"},{\"id\":\"1\",\"service_name\":\"Electrician\"}]";
+                    } else if (urlWebService.equals("search_database.php")) {
+                        return "[{\"id\":\"1\",\"type_id\":\"0\",\"post_date\":\"2018-09-02 22:13:25\",\"days_available\":\"06\",\"user_id\":\"0\",\"title\":\"Test #2\",\"description\":\"Desp Test2\"},{\"id\":\"2\",\"type_id\":\"0\",\"post_date\":\"2018-09-02 22:13:25\",\"days_available\":\"6\",\"user_id\":\"0\",\"title\":\"Test #3\",\"description\":\"Desp Test3\"}]";
+                    }
                     e.printStackTrace();
                     return null; // Connection failed
                 }
