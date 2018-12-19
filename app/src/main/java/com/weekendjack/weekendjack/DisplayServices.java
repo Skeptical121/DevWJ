@@ -100,8 +100,8 @@ class ServiceListingArrayAdapter extends ArrayAdapter<ServiceListing>{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.service_listing_layout, null);
 
-        TextView title = (TextView) view.findViewById(R.id.title);
-        TextView description = (TextView) view.findViewById(R.id.description);
+        TextView title = (TextView) view.findViewById(R.id.service_title);
+        TextView description = (TextView) view.findViewById(R.id.service_description);
 
         title.setText(serviceListing.getServiceTitle());
         // Trim description if too long:
